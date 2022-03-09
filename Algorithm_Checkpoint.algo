@@ -1,0 +1,26 @@
+// The problem: Write an algorithm that read a sentence, which ends with a point, character by character, and to determine:-
+                // -The length of the sentence (the number of characters).
+                // -The number of words in the sentence (assuming that the words are separated by a single space).
+                // -The number of vowels in the sentence.
+// The constraints:-Each character will be treated separately
+                // -The last character is the point
+                // -Use three variables as counters
+// The input: A simple sentence- "I have a dog and a black-footed ferret."
+// The output: A console.log of the length of the sentence, number of words in the sentence and number of vowels in the sentence.
+// The solution: The solution in this instance consists of using Regular expressions (Regex) to determine the length of the sentence,
+// number of words in the sentence and number of vowels in the sentence.
+
+Sentence_Reader ALGORITHM
+VAR
+    const countCharacters = /./g;
+    const countWords = /\w+(-\w+)*/g;
+    const countVowels = /[aeiou]/gi;
+BEGIN
+    sentenceReader = (sentence) => {
+    let sentenceLength = sentence.match(countCharacters).length;
+    let wordCount = sentence.match(countWords).length;
+    let vowelCount = sentence.match(countVowels).length;
+    return `There are ${sentenceLength} characters, ${wordCount} words and ${vowelCount} vowels in this sentence`;
+    
+};
+END
